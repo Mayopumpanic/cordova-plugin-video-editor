@@ -1,4 +1,5 @@
 package org.apache.cordova.videoeditor;
+package net.ypresto.androidtranscoder.format;
 
 import android.media.MediaCodecInfo;
 import android.media.MediaFormat;
@@ -89,6 +90,7 @@ public class CustomAndroidFormatStrategy implements MediaFormatStrategy {
 
     }
 
+    @Override
     public MediaFormat createAudioOutputFormat(MediaFormat inputFormat) {
         if (mAudioBitrate == AUDIO_BITRATE_AS_IS || mAudioChannels == AUDIO_CHANNELS_AS_IS) return null;
 
