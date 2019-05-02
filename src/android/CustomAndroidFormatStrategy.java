@@ -5,6 +5,7 @@ import android.media.MediaFormat;
 import android.util.Log;
 import net.ypresto.androidtranscoder.format.MediaFormatStrategy;
 import net.ypresto.androidtranscoder.format.OutputFormatUnavailableException;
+import net.ypresto.androidtranscoder.format.MediaFormatExtraConstants;
 
 /**
  * Created by ehmm on 02.05.2016.
