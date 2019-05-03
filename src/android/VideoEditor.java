@@ -30,8 +30,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import src.android.transcoder.MediaTranscoder;
-import src.android.transcoder.format.MediaFormatStrategyPresets;
+import net.ypresto.androidtranscoder.MediaTranscoder;
+import net.ypresto.androidtranscoder.format.MediaFormatStrategyPresets;
 
 /**
  * VideoEditor plugin for Android
