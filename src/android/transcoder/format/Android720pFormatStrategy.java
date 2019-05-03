@@ -39,9 +39,9 @@ class Android720pFormatStrategy implements MediaFormatStrategy {
     }
 
     public Android720pFormatStrategy(int videoBitrate, int audioBitrate, int audioChannels) {
-        mVideoBitrate = videoBitrate;
-        mAudioBitrate = audioBitrate;
-        mAudioChannels = audioChannels;
+        this.mVideoBitrate = videoBitrate;
+        this.mAudioBitrate = audioBitrate;
+        this.mAudioChannels = audioChannels;
     }
 
     @Override
@@ -69,7 +69,7 @@ class Android720pFormatStrategy implements MediaFormatStrategy {
         }
         MediaFormat format = MediaFormat.createVideoFormat("video/avc", outWidth, outHeight);
         // From Nexus 4 Camera in 720p
-        format.setInteger(MediaFormat.KEY_BIT_RATE, mVideoBitrate);
+        format.setInteger(MediaFormat.KEY_BIT_RATE, this.mVideoBitrate);
         format.setInteger(MediaFormat.KEY_FRAME_RATE, 30);
         format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 3);
         format.setInteger(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatSurface);
@@ -78,13 +78,13 @@ class Android720pFormatStrategy implements MediaFormatStrategy {
 
     @Override
     public MediaFormat createAudioOutputFormat(MediaFormat inputFormat) {
-        if (mAudioBitrate == AUDIO_BITRATE_AS_IS || mAudioChannels == AUDIO_CHANNELS_AS_IS) return null;
+        //if (this.mAudioBitrate == AUDIO_BITRATE_AS_IS || this.mAudioChannels == AUDIO_CHANNELS_AS_IS) return null;
 
         // Use original sample rate, as resampling is not supported yet.
         final MediaFormat format = MediaFormat.createAudioFormat(MediaFormatExtraConstants.MIMETYPE_AUDIO_AAC,
-                inputFormat.getInteger(MediaFormat.KEY_SAMPLE_RATE), mAudioChannels);
+                inputFormat.getInteger(MediaFormat.KEY_SAMPLE_RATE), this.mAudioChannels);
         format.setInteger(MediaFormat.KEY_AAC_PROFILE, MediaCodecInfo.CodecProfileLevel.AACObjectLC);
-        format.setInteger(MediaFormat.KEY_BIT_RATE, mAudioBitrate);
+        format.setInteger(MediaFormat.KEY_BIT_RATE, this.mAudioBitrate);
         return format;
     }
 }
