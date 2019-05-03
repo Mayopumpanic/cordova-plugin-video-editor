@@ -31,7 +31,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 import net.ypresto.androidtranscoder.MediaTranscoder;
-import net.ypresto.androidtranscoder.format.MediaFormatStrategyPresets;
+import android.transcoder.format.MediaFormatStrategyPresets;
 
 /**
  * VideoEditor plugin for Android
@@ -242,7 +242,7 @@ public class VideoEditor extends CordovaPlugin {
 
                     Log.d(TAG, "###############videoDuration:  " + videoDuration + "    ###############");
                     MediaTranscoder.getInstance().transcodeVideo(fin.getFD(), outputFilePath,
-                            MediaFormatStrategyPresets.createAndroid720pStrategy(), listener);
+                            MediaFormatStrategyPresets.createAndroid720pStrategy(8000 * 1000, 128 * 1000, 1), listener);
                             //new CustomAndroidFormatStrategy(videoBitrate, fps, width, height), listener, videoDuration);
                             
 
