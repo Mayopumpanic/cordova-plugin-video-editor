@@ -30,8 +30,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 
-import net.ypresto.androidtranscoder.MediaTranscoder;
-import net.ypresto.androidtranscoder.format.MediaFormatStrategyPresets;
+import src.android.transcoder.MediaTranscoder;
+import src.android.transcoder.format.MediaFormatStrategyPresets;
 
 /**
  * VideoEditor plugin for Android
@@ -244,6 +244,7 @@ public class VideoEditor extends CordovaPlugin {
                     MediaTranscoder.getInstance().transcodeVideo(fin.getFD(), outputFilePath,
                             MediaFormatStrategyPresets.createAndroid720pStrategy(8000 * 1000, 128 * 1000, 1), listener);
                             //new CustomAndroidFormatStrategy(videoBitrate, fps, width, height), listener, videoDuration);
+                            
 
                 } catch (Throwable e) {
                     Log.d(TAG, "transcode exception ", e);
